@@ -32,9 +32,6 @@ for i in range(0, 12):
     total_num += int(month_num)
     total_sale += sale1
     dict_money_month[i + 1] = round(sale1, 2)
-# print('月总销量dict_month_num:', dict_month_num)
-# print('全年所有商品总销量total_num:', total_num, '件')  # 22299
-# print("每月所有商品总销售额dict_money_month:", dict_money_month)
 print("全年所有商品总销售额total_sale:", round(total_sale, 2), "元")  # 2400069
 
 
@@ -86,11 +83,6 @@ for key, value in sort.items():
     for c, d in dict_money_year.items():
         dict2[c] = d
 
-print("")
-# print('总销量字典dict:', dict)
-print("")
-# print('总销售额字典dict2:', dict2)
-
 
 # 计算销量最高、最低的衣服
 print("")
@@ -119,44 +111,44 @@ for i in dict:
             rate = a / dict_month_num[k]
         print(i, j, '月份销量占比:', round((rate * 100), 2), '%')
 
-season_saleNum = {
-
-}
+print("")
 # 每个季度最畅销的衣服
 dict_season1_saleNum = {}
 dict_season2_saleNum = {}
 dict_season3_saleNum = {}
 dict_season4_saleNum = {}
-for i in dict:
+for i in dict:  # 遍历每个商品
+    season_saleNum = 0
+    for j in dict[i]:  # 遍历每个商品第j个月的销量
+        if j == 1 or j == 2 or j == 3:
+            season_saleNum += dict[i][j]   # 统计第1季度商品i的销量
+            dict_season1_saleNum[i] = season_saleNum
+    season_saleNum = 0
+    for k in dict[i]:
+        if k == 4 or k == 5 or k == 6:
+            season_saleNum += dict[i][k]
+            dict_season2_saleNum[i] = season_saleNum
     season_saleNum = 0
     for j in dict[i]:
-        if j == 1 or j == 2 or j == 3:
-            season_saleNum += dict[i][j]
-            dict_season1_saleNum[i] = season_saleNum
-        if j == 4 or j == 5 or j == 6:
-            season_saleNum += dict[i][j]
-            dict_season2_saleNum[i] = season_saleNum
         if j == 7 or j == 8 or j == 9:
             season_saleNum += dict[i][j]
             dict_season3_saleNum[i] = season_saleNum
+    season_saleNum = 0
+    for j in dict[i]:
         if j == 10 or j == 11 or j == 12:
             season_saleNum += dict[i][j]
             dict_season4_saleNum[i] = season_saleNum
-print('第一季度销售数据', dict_season1_saleNum)
-print('第二季度销售数据', dict_season2_saleNum)
-print('第三季度销售数据', dict_season3_saleNum)
-print('第四季度销售数据', dict_season4_saleNum)
+    season_saleNum = 0
 
-#---------------------------------------
-# 全年的销售总额  √
-# 每种衣服的销售（件数）占比  √
-# 每件衣服的月销售（件数）占比  √
-# 每件衣服的销售额占比  √
-# 每个季度最畅销的衣服
-# 最畅销的衣服是那种  √
-# 全年销量最低的衣服  √
-
-
-
-
-
+for a, b in dict_season1_saleNum.items():
+    if b == max(dict_season1_saleNum[a] for a in dict_season1_saleNum):
+        print('第一季度最畅销的商品是:', a, max(dict_season1_saleNum[a] for a in dict_season1_saleNum), '件')
+for a, b in dict_season2_saleNum.items():
+    if b == max(dict_season2_saleNum[a] for a in dict_season2_saleNum):
+        print('第二季度最畅销的商品是:', a, max(dict_season2_saleNum[a] for a in dict_season2_saleNum), '件')
+for a, b in dict_season3_saleNum.items():
+    if b == max(dict_season3_saleNum[a] for a in dict_season3_saleNum):
+        print('第三季度最畅销的商品是:', a, max(dict_season3_saleNum[a] for a in dict_season3_saleNum), '件')
+for a, b in dict_season4_saleNum.items():
+    if b == max(dict_season4_saleNum[a] for a in dict_season4_saleNum):
+        print('第四季度最畅销的商品是:', a, max(dict_season4_saleNum[a] for a in dict_season4_saleNum), '件')
