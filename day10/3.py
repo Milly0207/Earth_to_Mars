@@ -1,57 +1,207 @@
-'''
-该题考查点：self关键字的使用！
-定义一个学生类和对应的测试类
-要求：
-    1、学生有姓名和年龄两个属性，并且将属性私有化，提供公有的getXxx与setXxx方法对属性赋值和取值；
-    2、提供一个无返回值的无参数的自我介绍的方法，内容打印一句话：
-    “大家好，我叫xxx，今年xxx岁了！”
-    3、提供一个返回值为String类型，参数为学生类型的比较年龄差值的方法，如果当前对象的年龄比参数中的学生的年龄大，则返回：“我比同桌大xxx岁！”；如果当前对象的年龄比参数中的学生的年龄小，则返回：“我比同桌小xxx岁！”；如果当前对象的年龄和参数中的学生的年龄一样大，则返回：“我和同桌一样大！”
-    4、在测试类中分别创建你和你同桌两个人的对象，并分别给你和你同桌的姓名和年龄属性赋上对应的值；
-    5、调用你自己的对象的自我介绍的方法，展示出你自己的姓名和年龄；
-    6、用你自己的对象调用比较年龄差值的方法，把你同桌作为参数使用，并打印方法返回的字符串的内容；
-'''
 class student:
+    __no = 0
     __name = ""
     __age = 0
+    __sex = ""
+    __height = 0.0
+    __weight = 0.0
+    __score = 0
+    __addr = ""
+    __phone = 1
+
+    def setNo(self,no):
+        self.__no = no
+    def getNo(self):
+        return self.__no
 
     def setName(self, name):
-        if name == "":
-            print("用户名不能为空！别瞎弄！")
-        else:
-           self. __name = name
-
+        self.__name = name
     def getName(self):
         return self.__name
 
     def setAge(self, age):
-        if age < 0 or age > 120:
-            print("年龄非法！别瞎弄！")
-        else:
-            self.__age = age
-
+        self.__age = age
     def getAge(self):
         return self.__age
 
-    def intr(self):
-        print("大家好，我叫", self.__name, "今年", self.__age, "岁了!")
+    def setSex(self, sex):
+        self.__sex = sex
+    def getSex(self):
+        return self.__sex
 
-    def age_dif(self, age2):
-        if self.__age > age2:
-            dif = self.__age - age2
-            print("我比同桌大", dif, "岁！")
-        elif self.__age < age2:
-            dif = age2 - self.__age
-            print("我比同桌小", dif, "岁！")
-        else:
-            print("我和同桌一样大！")
+    def setHeight(self, height):
+        self.__height = height
+    def getHeight(self):
+        return self.__height
 
-stu = student()
 
-stu.setName("小华")
-stu.setAge(5)
-stu.intr()
+    def learn(self, time):
+        print(self.__name, "已经学习了", time, "小时了")
+    def game(self, game):
+        print(self.__name, "喜欢玩", game)
+    def code(self,rows):
+        print(self.__name, "代码写了", rows, "行")
+    def sum(self, num1, num2):
+        sum = num1 + num2
+        print("求和结果:", sum)
 
-stu2 = student()
-stu2.setName("花花")
-stu2.setAge(3)
-stu.age_dif( stu2.getAge())
+student = student()
+student.setName("小华")
+student.game("蜘蛛纸牌")
+student.learn(10)
+student.code(3)
+student.sum(1,2)
+
+#------------------------------------------------------
+print()
+class car:
+    __model = ""
+    __num = 0
+    __color = ""
+    __weight = 0.0
+    __size = 0.0
+
+    def setModel(self, model):
+        self.__model = model
+    def getModel(self):
+        return self.__model
+
+    def setNum(self, num):
+        self.__num = num
+    def getNum(self):
+        return self.__num
+
+    def setColor(self, color):
+        self.__color = color
+    def getColor(self):
+        return self.__color
+
+    def setWeight(self, weight):
+        self.__weight = weight
+    def getWeight(self):
+        return self.__weight
+
+    def setSize(self, size):
+        self.__size = size
+    def getSize(self):
+        return self.__size
+
+    def run(self):
+        print(self.__model, "可以跑")
+
+car1 = car()
+car1.setModel("法拉利")
+car1.setColor("red")
+car1.setNum(4)
+car1.setWeight(10000)
+car1.setSize(2.6)
+car1.run()
+
+car2 = car()
+car2.setModel("宝马")
+car2.setColor("white")
+car2.setNum(4)
+car2.setWeight(10000)
+car2.setSize(2.6)
+car2.run()
+
+#------------------------------------------------------
+print()
+class laptop:
+    __model = ""
+    __time = 0.0
+    __color = ""
+    __weight = 0.0
+    __cpu = ""
+    __ram = ""
+    __disk = ""
+
+    def setModel(self, model):
+        self.__model = model
+    def getModel(self):
+        return self.__model
+
+    def setTime(self, time):
+        self.__time = time
+    def getTime(self):
+        return self.__time
+
+    def setColor(self, color):
+        self.__color = color
+    def getColor(self):
+        return self.__color
+
+    def setWeight(self, weight):
+        self.__weight = weight
+    def getWeight(self):
+        return self.__weight
+
+    def setCpu(self, cpu):
+        self.__cpu = cpu
+    def getCpu(self):
+        return self.__cpu
+
+    def setRam(self, ram):
+        self.__ram = ram
+    def getRam(self):
+        return self.__ram
+
+    def setDisk(self, disk):
+        self.__disk = disk
+
+    def getDisk(self):
+        return self.__disk
+
+    def game(self, game):
+        print(self.__model, "可以打游戏", game)
+
+    def office(self):
+        print("可以办公")
+
+laptop = laptop()
+laptop.setModel("华硕 U4000")
+laptop.setColor("灰色")
+laptop.game("扫雷")
+
+
+
+#------------------------------------------------------
+class monkey:
+    __type = ""
+    __sex = ""
+    __color = ""
+    __weight = 0.0
+
+    def setType(self, type):
+        self.__type = type
+    def getType(self):
+        return self.__type
+
+    def setSex(self, sex):
+        self.__sex = sex
+    def getSex(self):
+        return self__sex
+
+    def setColor(self, color):
+        self.__color = color
+    def getColor(self):
+        return self.__color
+
+    def setWeight(self, weight):
+        self.__weight = weight
+    def getWeight(self):
+        return self.__weight
+
+    def make_fire(self, tool):
+        print(self.__type, "可以使用", tool, "来造火")
+
+    def learn(self, what):
+        print(self.__type, "可以学习", what)
+
+monkey1 = monkey()
+monkey1.setType("金丝猴")
+monkey1.setColor("棕色")
+monkey1.setSex("母")
+monkey1.setWeight("80")
+monkey1.make_fire("石头")
+monkey1.learn(what='骑车、'+'唱歌')
